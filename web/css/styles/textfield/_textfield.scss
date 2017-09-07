@@ -1,0 +1,19 @@
+@import "../theme/theme";
+@import "../typography/variables";
+@import "../animation/mixins";
+
+@import "variables";
+@import "textfield.orig";
+
+.mdl-textfield {
+    width: 100%;
+
+}
+
+// Styling for the input element.
+.mdl-textfield__input {
+
+    .mdl-textfield.is-disabled & {
+        color: $input-text-label-color;
+    }
+}

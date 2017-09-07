@@ -1,0 +1,56 @@
+<!--<div class="application mdl-layout mdl-layout&#45;&#45;fixed-header" mdl-class="fixDrawer : 'mdl-layout&#45;&#45;fixed-drawer'">-->
+    <!--<header class="mdl-layout__header mdl-color&#45;&#45;primary-dark">-->
+        <!--<div class="mdl-layout__header-row">-->
+            <!--<span mdl-observe="title" class="mdl-layout-title">Bolsa de Empleo</span>-->
+
+            <!--&lt;!&ndash; Add spacer, to align navigation to the right in desktop &ndash;&gt;-->
+            <!--<div class="mdl-layout-spacer"></div>-->
+            <!--<ul class="mdl-menu mdl-menu&#45;&#45;bottom-right mdl-ripple-effect" for="more-button">-->
+                <!--<li class="mdl-menu__item"><a class="mdl-color-text&#45;&#45;black" href="#/view1">Perfil</a></li>-->
+                <!--<li class="mdl-menu__item"><a class="mdl-color-text&#45;&#45;black" href="#/view2">Salir</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</header>-->
+    <!--<div class="mdl-layout__drawer mdl-color&#45;&#45;white">-->
+        <!--<span class="mdl-layout-title mdl-color&#45;&#45;accent-800">-->
+            <!--<a href="/" class="mdl-color-text&#45;&#45;white"><img src="packages/mdl/assets/images/mdl-dart-logo.gif"></a>-->
+        <!--</span>-->
+        <!--<nav class="mdl-navigation">-->
+            <!--<div class="mdl-accordion-group mdl-accordion&#45;&#45;navigation mdl-accordion&#45;&#45;radio-type mdl-ripple-effect">-->
+
+                <!--&lt;!&ndash; Panel 1 &ndash;&gt;-->
+                <!--<div class="mdl-accordion">-->
+                    <!--<label class="mdl-accordion__label">-->
+                        <!--<i class="material-icons indicator mdl-color-text&#45;&#45;accent">chevron_right</i>-->
+                        <!--<i class="material-icons symbol mdl-color-text&#45;&#45;accent-600">explore</i>-->
+                        <!--Estudiante</label>-->
+                    <!--<div class="mdl-accordion&#45;&#45;content">-->
+                        <!--<a class="mdl-navigation__link " href="#/view1">Hoja de Vida</a>-->
+                        <!--<a class="mdl-navigation__link " href="#/view2">Buscar Empleo</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; Panel 2 &ndash;&gt;-->
+                <!--<div class="mdl-accordion">-->
+                    <!--<label class="mdl-accordion__label">-->
+                        <!--<i class="material-icons indicator mdl-color-text&#45;&#45;accent">chevron_right</i>-->
+                        <!--<i class="material-icons symbol mdl-color-text&#45;&#45;accent-600">receipt</i>-->
+                        <!--Empresario</label>-->
+                    <!--<div class="mdl-accordion&#45;&#45;content">-->
+                        <!--<a class="mdl-navigation__link" href="#/view3">Crear Oferta</a>-->
+                        <!--<a class="mdl-navigation__link" href="#/view3">Mis ofertas</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</nav>-->
+    <!--</div>-->
+    <!--<main class="mdl-layout__content" [class.mdl-color&#45;&#45;grey-100]="localStorage.containsKey('user')">-->
+        <!--<div id="main" class="mdl-content mdl-properties__container">-->
+            <!--<router-outlet></router-outlet>-->
+        <!--</div>-->
+    <!--</main>-->
+    <!--<app-footer></app-footer>-->
+<!--</div>-->
+<router-outlet></router-outlet>
+<app-footer></app-footer>
