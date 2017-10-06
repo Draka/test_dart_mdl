@@ -4,6 +4,7 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:bolsa_empleo/classes/Errors.dart';
+import 'package:bolsa_empleo/classes/Menu.dart';
 import 'package:bolsa_empleo/classes/User.dart';
 import 'package:bolsa_empleo/services/model.dart';
 
@@ -18,20 +19,14 @@ class Session implements OnInit {
 
   Storage localStorage = window.localStorage;
 
-  Session(this._router){
-    //Cierra el menu lateral
-//    final HtmlElement element = querySelector(".mdl-layout");
-//    final MaterialLayout menu1 = MaterialLayout.widget(element);
-//    if (menu1.drawer.classes.contains('is-visible')) {
-//      menu1.toggleDrawer();
-//    }
-    //actualiza la sesión
+  Session(this._router) {
+    Menu.sel['name'] = 'xxx';
     updateUser();
   }
 
   Future<Null> ngOnInit() async {}
 
-  updateUser(){
+  updateUser() {
     users.get('me').then((request) {
       localStorage['user'] = request.responseText;
       User.user = JSON.decode(localStorage['user']);
@@ -50,6 +45,65 @@ class Session implements OnInit {
         errors = Errors.errors;
       }
     });
+  }
+
+  //modelos de busqueda generales
+  ModelService companies = new ModelService('companies');
+  ModelService departments = new ModelService('departments');
+  ModelService towns = new ModelService('towns');
+
+  List<Map> list_companies = [];
+  List<Map> list_departments = [];
+  List<Map> list_towns = [];
+  Map page_companies = {};
+  List count_companies = [];
+
+  Future listCompanies([Map queryParameters]) async {
+    return companies.query(queryParameters).then((HttpRequest request) {
+      Map data = JSON.decode(request.responseText);
+      list_companies = data['result'];
+      page_companies = data['pagination'];
+
+      companies.get('count', queryParameters).then((HttpRequest request) {
+        Map data = JSON.decode(request.responseText);
+        count_companies = pagination(page_companies, data['result']);
+      }, onError: (ProgressEvent e) {
+        ee.evaluateError(e);
+        errors = Errors.errors;
+      });
+    }, onError: (ProgressEvent e) {
+      ee.evaluateError(e);
+      errors = Errors.errors;
+    });
+  }
+
+  Future listDepartaments([Map queryParameters]) async {
+    return departments.query(queryParameters).then((HttpRequest request) {
+      Map data = JSON.decode(request.responseText);
+      list_departments = data['result'];
+    }, onError: (ProgressEvent e) {
+      ee.evaluateError(e);
+      errors = Errors.errors;
+    });
+  }
+
+  Future listTowns([Map queryParameters]) async {
+    return towns.query(queryParameters).then((HttpRequest request) {
+      Map data = JSON.decode(request.responseText);
+      list_towns = data['result'];
+    }, onError: (ProgressEvent e) {
+      ee.evaluateError(e);
+      errors = Errors.errors;
+    });
+  }
+
+  //paginación
+  List pagination(page, c) {
+    List count = [];
+    for (num i = 1; i <= (c / page['limit']).ceil(); i++) {
+      count.add(i);
+    }
+    return count;
   }
 
 }

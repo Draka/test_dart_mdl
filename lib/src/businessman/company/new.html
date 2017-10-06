@@ -1,0 +1,148 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Registro de Empresa</h5>
+                    <form (ngSubmit)="registerBtn()">
+                        <div class="form-group">
+                            <label class="form-control-label" for="name">Nombre</label>
+                            <input class="form-control" type="text" id="name" required
+                                   [(ngModel)]="company['name']">
+                            <div class="error" *ngIf="errors.containsKey('company-name')">
+                                {{errors['company-name']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="business_name">Razón social</label>
+                            <input class="form-control" type="text" id="business_name" required
+                                   [(ngModel)]="company['business_name']">
+                            <div class="error" *ngIf="errors.containsKey('company-business_name')">
+                                {{errors['company-business_name']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="nit">NIT</label>
+                            <input class="form-control" type="text" id="nit" required
+                                   [(ngModel)]="company['nit']">
+                            <div class="error" *ngIf="errors.containsKey('company-nit')">
+                                {{errors['company-nit']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="address">Dirección</label>
+                            <input class="form-control" type="text" id="address" required
+                                   [(ngModel)]="company['address']">
+                            <div class="error" *ngIf="errors.containsKey('company-address')">
+                                {{errors['company-address']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="department">Departamento</label>
+                            <select class="form-control" id="department" required [(ngModel)]="company['department']" required (change)="findTowns()">
+                                <option value="">-- Selecionar --</option>
+                                <option *ngFor="let item of list_departments">{{item['name']}}</option>
+                            </select>
+                            <div class="error" *ngIf="errors.containsKey('company-department')">
+                                {{errors['company-department']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="borough">Municipio</label>
+                            <select class="form-control" id="borough" required [(ngModel)]="company['borough']" required>
+                                <option value="">-- Selecionar --</option>
+                                <option *ngFor="let item of list_towns">{{item['name']}}</option>
+                            </select>
+                            <div class="error" *ngIf="errors.containsKey('company-borough')">
+                                {{errors['company-borough']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="phone">Teléfono de contacto</label>
+                            <input class="form-control" type="text" id="phone" required
+                                   [(ngModel)]="company['phone']">
+                            <div class="error" *ngIf="errors.containsKey('company-phone')">
+                                {{errors['company-phone']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="size">Tamaño de la empresa</label>
+                            <select class="form-control" id="size" required [(ngModel)]="company['size']">
+                                <option value="">-- Selecionar --</option>
+                                <option>Pequeña 1 a 10 personas</option>
+                                <option>Media de 11 a 50 personas</option>
+                                <option>Grande más de 51 personas</option>
+                            </select>
+                            <div class="error" *ngIf="errors.containsKey('company-size')">
+                                {{errors['company-size']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="economic_activity">Actividad económica</label>
+                            <select class="form-control" id="economic_activity" required [(ngModel)]="company['economic_activity']">
+                                <option value="">-- Selecionar --</option>
+                                <option>Agricultura, ganadería, caza, silvicultura y pesca.</option>
+                                <option>Explotación de minas y canteras.</option>
+                                <option>Industria manufacturera.</option>
+                                <option>Suministro de electricidad, gas, vapor y aire acondicionado.</option>
+                                <option>Distribución de agua; evacuación y tratamiento de aguas residuales, gestión de desechos y actividades.</option>
+                                <option>Construcción.</option>
+                                <option>Comercio al por mayor y al por menor; reparación de vehículos automotores y motocicletas.</option>
+                                <option>Transporte y almacenamiento.</option>
+                                <option>Alojamiento y servicios de comida.</option>
+                                <option>Información y comunicaciones.</option>
+                                <option>Actividades finacieras y de seguros.</option>
+                                <option>Actividades inmobiliarias.</option>
+                                <option>Actividades profesionales, científicas y técnicas.</option>
+                                <option>Actividades de servicios administrativos y de apoyo.</option>
+                                <option>Administración pública y defensa; planes de seguridad social de afiliación obligatoria.</option>
+                                <option>Educación.</option>
+                                <option>Actividades de atención de la salud humana y de asistencia social.</option>
+                                <option>Actividades artísticas, de entrenimiento y recreación.</option>
+                                <option>Otras actividades de servicios.</option>
+                                <option title="actividades no diferenciadas de los hogares individuales como productores de bienes y servicios para uso propio.">Actividades de los hogares en calidad de empleadores.</option>
+                                <option>Actividades de organizaciones y entidades extraterritoriales.</option>
+                            </select>
+                            <div class="error" *ngIf="errors.containsKey('company-economic_activity')">
+                                {{errors['company-economic_activity']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="sector">Sector</label>
+                            <select class="form-control" id="sector" required [(ngModel)]="company['sector']">
+                                <option value="">-- Selecionar --</option>
+                                <option>Público</option>
+                                <option>Privado</option>
+                                <option>Mixto</option>
+                            </select>
+                            <div class="error" *ngIf="errors.containsKey('company-sector')">
+                                {{errors['company-sector']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="url">Dirección web</label>
+                            <input class="form-control" type="url" id="url"
+                                   [(ngModel)]="company['url']">
+                            <div class="error" *ngIf="errors.containsKey('url')">
+                                {{errors['url']['title']}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">
+                                <span *ngIf="edit">Editar</span>
+                                <span *ngIf="!edit">Registrar</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="errors.containsKey('errorAny')">
+                <h5>
+                    <div class="material-icons-baseline"><i class="material-icons">error_outline</i></div>
+                    Error
+                </h5>
+                {{errors['errorAny']['title']}}
+            </div>
+        </div>
+    </div>
+</div>

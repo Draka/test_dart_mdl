@@ -1,0 +1,154 @@
+.uv-header {
+  background: white;
+  padding-bottom: 25px;
+}
+
+.head-links {
+  background: #808285;
+  font-size: 13px;
+  font-family: 'Open Sans';
+  margin-bottom: 25px;
+  margin-top: 10px;
+  text-align: center;
+  right: 95px;
+  position: relative;
+  width: 615px;
+  padding: 5px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+    }
+  }
+
+  .head-links a {
+    display: block;
+    color: #fff;
+    padding: 5px 2px;
+  }
+
+  .custom {
+    overflow: hidden;
+  }
+
+  a {
+    display: block;
+    color: #fff;
+    padding: 5px 2px;
+  }
+}
+
+.enlaceSuperior a:link {
+  text-decoration: none;
+}
+
+.enlaceSuperior a:hover {
+
+  font-weight: 600;
+  box-shadow: 0px 0px 10px #000; /* Sombra */
+  -moz-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  cursor: pointer;
+}
+
+.home-contacto, .home-contacto a {
+  color: white;
+}
+
+.home-contacto h5 {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.home-contacto ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-contacto .nombre-contacto h5 {
+  text-transform: uppercase;
+  margin: 12px 0 0 0
+}
+
+.home-contacto .address h5, .pbx h5 {
+  margin: 12px 0 0 0
+}
+
+.home-contacto .nombre-contacto, .address, .pbx {
+  text-align: left;
+  margin-left: 30px !important
+}
+
+.home-contacto .footer-logo, .home-contacto .nombre-contacto, .home-contacto .address, .home-contacto .pbx, .home-contacto .social, .home-contacto .institucional, .home-contacto .facultades, .home-contacto .sedes, .home-contacto .investigacion, .home-contacto .internacionalizacion, .home-contacto .servicios {
+  display: inline-block;
+  margin: 5px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.home-contacto .social {
+  border-left: 1px solid #fff;
+  padding: 0 25px 55px 25px;
+}
+
+.home-contacto .social li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.home-footer-contacto {
+  background: #D51B23 url(../assets/logos/footer-contacto-bg.jpg) left bottom repeat-x;
+  margin-bottom: 1px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  text-align: center;
+}
+
+
+
+.home-footer-enlaces {
+  background: #58595B;
+  font-size: 13px;
+  text-align: center
+}
+
+.home-footer-enlaces .institucional, .home-footer-enlaces .facultades, .home-footer-enlaces .sedes, .home-footer-enlaces .investigacion, .home-footer-enlaces .internacionalizacion {
+  text-align: left
+}
+
+.home-footer-enlaces h5 {
+  color: #FBB040;
+  font-size: 17px;
+  font-weight: 200;
+}
+
+
+
+.home-copyright {
+  background: #303030;
+  font-size: 13px;
+}
+
+.home-copyright p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.home-copyright span {
+  color: #F9AE40;
+}
+
+.home-copyright a {
+  color: #F9AE40;
+}
+
+footer {
+  font-size: 14px;
+}

@@ -1,0 +1,10 @@
+.material-icons-baseline {
+  align-items: center;
+  display: inline-flex;
+  &::before {
+    content: '-';
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+  }
+}

@@ -7,13 +7,10 @@ class Profile implements OnInit {
   Errors ee = new Errors();
   Map errors = Errors.errors;
   Router _router;
+  String menu_sel ='';
 
-  Profile(this._router){
-    print('yyy');
-  }
+  Profile(this._router);
 
-  Future<Null> ngOnInit() async {
-    print('xxx');
-  }
+  Future<Null> ngOnInit() async {}
 
 }

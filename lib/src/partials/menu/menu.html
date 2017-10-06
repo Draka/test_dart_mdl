@@ -1,0 +1,80 @@
+<div class="uv-header-wrapper d-none d-lg-block">
+    <!-- HEADER UNIVALLE-HEADER -->
+    <header id="t3-header" class="uv-header">
+        <div class="container">
+            <div class="row">
+                <!-- LOGO TEMPLATE-->
+                <div class="col-xs-12 col-md-7 col-lg-6 " style="    padding-top: 25px;">
+                    <div class="logo-image">
+                        <a id="logo" href="/" title="Universidad del Valle">
+                            <img src="/assets/logos/logo.jpg" width="424" height="51" alt="Universidad del Valle">
+                        </a>
+                    </div>
+                </div>
+                <!-- //LOGO  LOGO-->
+
+                <div class="col-xs-12 col-md-5 col-lg-6">
+                    <!-- HEAD LINKS -->
+                    <div class="head-links">
+                        <div class="custom">
+                            <div class="enlaceSuperior">
+                                <ul>
+                                    <li><a title="Atención al Ciudadano y Transparencia y Acceso a Información Pública"
+                                           href="http://atencionalciudadano.univalle.edu.co/atencionCiudadanoInformacionPublica.html"
+                                           target="_blank">Atención ciudadanía</a></li>
+                                    <li><a href="http://portaldeninos.univalle.edu.co/" target="_blank">Portal
+                                        Infantil</a></li>
+                                    <li><a href="http://www.univalle.edu.co/directorio-univalle" target="_blank">Directorio</a></li>
+                                    <li><a href="http://www.univalle.edu.co/index.php/correo-electronico-institucional" target="_blank">Correo</a>
+                                    </li>
+                                    <li><a href="http://biblioteca.univalle.edu.co/" target="_blank">Biblioteca</a></li>
+                                    <li><a href="http://www.univalle.edu.co/index.php/mapa-del-sitio" target="_blank">Mapa del sitio</a></li>
+                                    <li><a href="http://www.univalle.edu.co/english/index.html" target="_blank">English version</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- //HEADER -->
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+
+        <a class="navbar-brand" href="#">SIGE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Anuncios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" *ngIf="localStorage['token'] != ''">Nuevo Anuncio</a>
+                </li>
+                <li class="nav-item" [class.active]="menu['name']=='CompanyList'" *ngIf="localStorage['token'] != ''">
+                    <a class="nav-link" [routerLink]="['CompanyList']">Empresas</a>
+                </li>
+            </ul>
+
+            <ul class="my-2 my-lg-0 navbar-nav" *ngIf="localStorage['token'] != ''">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hand" id="profile" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        {{user['name']}}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profile">
+                        <a class="dropdown-item" href="#">Editar</a>
+                        <button class="dropdown-item btn-link hand" (click)="logoutBtn()">Salir</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -6,6 +6,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:bolsa_empleo/classes/Errors.dart';
+import 'package:bolsa_empleo/classes/User.dart';
 import 'package:bolsa_empleo/services/model.dart';
 import 'package:bolsa_empleo/src/profile/profile.dart';
 
@@ -43,18 +44,19 @@ class RegistrationComponent extends Profile implements OnInit {
 
     users.post(register).then((HttpRequest request) {
       Map data = JSON.decode(request.responseText);
-      print(data);
-//      if (!data.containsKey('user')) {
-//        //error
-//      } else {
-//        User.token = data['token'];
-//        User.user = data['user'];
-//
-//        localStorage['token'] = data['token'];
-//        localStorage['user'] = JSON.encode(data['user']);
-//
-//        _router.navigate(['Dashboard']);
-//      }
+      //print(data);
+      if (!data.containsKey('user')) {
+        //error
+      } else {
+        User.token = data['token'];
+        User.user = data['user'];
+
+        localStorage['token'] = data['token'];
+        localStorage['user'] = data['user'];
+        User.sel['name'] = data['user']['personal_info']['firstname'];
+
+        _router.navigate(['CompanyList']);
+      }
     }, onError: (ProgressEvent e) {
       ee.evaluateError(e);
       errors = Errors.errors;

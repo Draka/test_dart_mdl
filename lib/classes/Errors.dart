@@ -53,10 +53,10 @@ class Errors {
       };
     } else {
       var ee = JSON.decode(request.responseText);
-      if (ee['body'] is List) {
-        ee['body'].forEach((e) => show(e));
+      if (ee is List) {
+        ee.forEach((e) => show(e));
       } else {
-        show(ee['body']);
+        show(ee);
       }
     }
   }

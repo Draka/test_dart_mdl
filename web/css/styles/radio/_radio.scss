@@ -1,9 +1,0 @@
-@import "../theme/theme";
-@import "../animation/mixins";
-
-@import "variables";
-@import "radio.orig";
-
-.mdl-radio {
-    //@include avoid-blue-box-on-double-click();
-}

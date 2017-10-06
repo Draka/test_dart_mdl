@@ -11,10 +11,6 @@ dependencies:
   angular: ^4.0.0
   angular_forms: ^1.0.0
   angular_router: ^1.0.2
-  http: ^0.11.0
-  stream_transform: ^0.0.6
-  mdl: ^2.0.3
-  dice: ^1.7.0
 
 dev_dependencies:
   browser: ^0.10.0
@@ -22,4 +18,6 @@ dev_dependencies:
 transformers:
 - angular:
     entry_points: web/main.dart
+- $dart2js:
+    commandLineOptions: [--trust-type-annotations, --trust-primitives, --show-package-warnings, --dump-info]
 - dart_to_js_script_rewriter
